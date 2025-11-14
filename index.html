@@ -32,7 +32,6 @@
 <p>En 1860 regresa a España y es destinado a los colegios de San Fernando, Getafe y Celanova. En 1869 llega a Sanlúcar de Barrameda y permanece allí hasta 1873. Luego es bibliotecario en el Real Monasterio de El Escorial, donde aprovecha para seguir investigando las propiedades curativas de las plantas. Posteriormente, es enviado a Monforte de Lemos (Lugo), como Rector. En 1879 vuelve a Sanlúcar de Barrameda. Allí descubre la necesidad de escolarizar a las niñas y funda la Congregación de Hijas de la Divina Pastora, dedicada a la educación integral de la infancia y juventud.</p>
 <p>En 1888 retorna a Getafe y aquí permanecerá hasta su muerte, durante 37 años. Jubilado como maestro, seguía con su actividad científica y como director espiritual. Murió a los 94 años en Getafe en 1925.</p>
 </section>
-
 <section id="valores">
 <h2>Valores de San Faustino Míguez</h2>
 <ul>
@@ -44,7 +43,6 @@
 <li><strong>Valentía:</strong> Defendió la dignidad y la igualdad de la mujer en tiempos difíciles.</li>
 </ul>
 </section>
-
 <section id="frases">
 <h2>Frases de Faustino Míguez</h2>
 <table>
@@ -82,7 +80,6 @@
 </tr>
 </table>
 </section>
-
 <section id="galeria">
 <h2>Galería de imágenes</h2>
 <div class="contenedor-galeria">
@@ -118,12 +115,136 @@
 </div>
 </div>
 </section>
+<section id="jugar-trivia">
+  <h2>¿Te animas a poner a prueba tus conocimientos?</h2>
+  <button id="abrirTrivia">Comenzar Trivia</button>
+</section>
 </main>
-
 <footer>
 <p>&copy; 2025 Taller de Informática</p>
 <a href="./codigoHTML.txt"><i class="bi bi-filetype-html"></i></a>
 <a href="./codigoCSS.txt"><i class="bi bi-filetype-css"></i></a>
 </footer>
+<!-- Modal -->
+<div id="modalTrivia" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar">×</span>
+    <h2>Trivia sobre San José de Calasanz</h2>
+
+    <form id="formTrivia">
+      <p><strong>1.</strong> ¿Dónde nació San Faustino Miguez?</p>
+      <label><input type="radio" name="p1" value="Madrid"> Madrid</label><br>
+      <label><input type="radio" name="p1" value="Peralta de la Sal"> Peralta de la Sal</label><br>
+      <label><input type="radio" name="p1" value="Ourense"> Ourense</label><br><br>
+
+      <p><strong>2.</strong> ¿En qué año nació?</p>
+      <label><input type="radio" name="p2" value="1831"> 1831</label><br>
+      <label><input type="radio" name="p2" value="1830"> 1830</label><br>
+      <label><input type="radio" name="p2" value="1756"> 1832</label><br><br>
+
+      <p><strong>3.</strong> ¿Qué escuela fundó?</p>
+      <label><input type="radio" name="p3" value="Instituto Calasancio Hijos de la Divina Pastora"> Instituto Calasancio Hijos de la Divina Pastora</label><br>
+      <label><input type="radio" name="p3" value="Colegio Calasancio (Nuestra Señora de las Escuelas Pías)"> Colegio Calasancio (Nuestra Señora de las Escuelas Pías)</label><br>
+      <label><input type="radio" name="p3" value="Escolapios Bilbao"> Escolapios Bilbao</label><br><br>
+
+      <p><strong>4.</strong> ¿Cuándo fue beatificado?</p>
+      <label><input type="radio" name="p4" value="25 de octubre de 1998"> 25 de octubre de 1998</label><br>
+      <label><input type="radio" name="p4" value="25 de octubre de 1999"> 25 de octubre de 1999</label><br>
+      <label><input type="radio" name="p4" value="25 de octubre de 1997"> 25 de octubre de 1997</label><br><br>
+
+      <p><strong>5.</strong> ¿Qué día se celebra su festividad?</p>
+      <label><input type="radio" name="p5" value="8 de marzo"> 8 de marzo</label><br>
+      <label><input type="radio" name="p5" value="12 de octubre"> 12 de octubre</label><br>
+      <label><input type="radio" name="p5" value="15 de mayo"> 15 de mayo</label><br><br>
+
+      <button type="submit">Enviar respuestas</button>
+    </form>
+
+    <div id="resultado"></div>
+  </div>
+</div>
+<script>
+    const modalTrivia = document.getElementById("modalTrivia");
+    const btnAbrir = document.getElementById("abrirTrivia");
+    const btnCerrar = document.querySelector(".cerrar");
+    btnAbrir.onclick = () => { modal.style.display = "block"; };
+    btnCerrar.onclick = () => { modal.style.display = "none"; };
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+    document.getElementById("formTrivia").addEventListener("submit", function(e) {
+ e.preventDefault();
+ // Variable para puntaje
+ let puntaje = 0;
+ let salida = "";
+ // Capturamos la respuesta de la PREGUNTA 1
+ let r1 = document.querySelector('input[name="p1"]:checked');
+ // Validamos
+ if (r1) {
+ if (r1.value === "Ourense") {
+ puntaje++;
+ salida += "<p class='correcta'>1.  Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>1.  Incorrecta. Correcta: Ourense</p>";
+ }
+ } else {
+ salida += "<p class='incorrecta'>1.  No respondida. Correcta: Ourense</p>";
+ }
+ // Capturamos la respuesta de la PREGUNTA 1
+ let r2 = document.querySelector('input[name="p2"]:checked');
+ // Validamos
+ if (r2) {
+ if (r2.value === "1831") {
+ puntaje++;
+ salida += "<p class='correcta'>2.  Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>2.  Incorrecta. Correcta: 1831</p>";
+ }
+ } else {
+ salida += "<p class='incorrecta'>2.  No respondida. Correcta: 1831</p>";
+ }
+ // Capturamos la respuesta de la PREGUNTA 1
+ let r3 = document.querySelector('input[name="p3"]:checked');
+ // Validamos
+ if (r3) {
+ if (r3.value === "Instituto Calasancio Hijos de la Divina Pastora") {
+ puntaje++;
+ salida += "<p class='correcta'>3.  Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>3.  Incorrecta. Correcta: Instituto Calasancio Hijos de la Divina Pastora</p>";
+ }
+ } else {
+ salida += "<p class='incorrecta'>3.  No respondida. Correcta: Instituto Calasancio Hijos de la Divina Pastora</p>";
+ }
+ // Capturamos la respuesta de la PREGUNTA 1
+ let r4 = document.querySelector('input[name="p4"]:checked');
+ // Validamos
+ if (r4) {
+ if (r4.value === "25 de octubre de 1998") {
+ puntaje++;
+ salida += "<p class='correcta'>4.  Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>4.  Incorrecta. Correcta: 25 de octubre de 1998</p>";
+ }
+ } else {
+ salida += "<p class='incorrecta'>4.  No respondida. Correcta: 25 de octubre de 1998</p>";
+ }
+ // Capturamos la respuesta de la PREGUNTA 1
+ let r5 = document.querySelector('input[name="p5"]:checked');
+ // Validamos
+ if (r5) {
+ if (r5.value === "8 de marzo") {
+ puntaje++;
+ salida += "<p class='correcta'>5.  Correcta</p>";
+ } else {
+ salida += "<p class='incorrecta'>5.  Incorrecta. Correcta: 8 de marzo</p>";
+ }
+ } else {
+ salida += "<p class='incorrecta'>5.  No respondida. Correcta: 8 de marzo</p>";
+ }
+ // Mostramos el resultado dentro del modal, debajo del formulario
+ salida += `<h4>Puntaje final: ${puntaje} de 5</h4>`;
+ document.getElementById("resultado").innerHTML = salida;
+}); 
+
+</script>     
 </body>
 </html>
